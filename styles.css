@@ -1,76 +1,76 @@
 /* Body design */
 body {
-    background-color: #1D1E22;
     font-family: sans-serif;
-    color:rgb(177, 150, 238);
-}
+    width: 100vw;height: 100vh;
 
-h1{
-  margin:0.5em;
-}
- 
-.bg-blur {
-    overflow: hidden;
-    background-color: transparent;
-}
- 
-.bg-blur::before {
-    content:"";/* MANDATORY */
+    color:whitesmoke;
 
-    background:url('https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80');
+    background:url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    opacity:1;
-
-    position:absolute;
-    top:0;left:0;
-    width:100%;
-    height:100%;
-
-    z-index:-1;/* to get bg image to back */
-
-    filter: blur(20px);
+    opacity:0.95;
 }
 
 /* Add task */
 
-.add-task{
-    margin: 1em;
-    width:70%;
-    display: flex;;
+.add-task {
+  display: flex;
+  max-width: 80vw;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 50px;
+  position: relative;
 }
 
-.add-task input[type="text"] {
-    width: 100%;
-    padding: 0.5em;
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 }
 
-.add-task button {
-    padding: 0.5em 1em;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
 }
 
-/* Filtering data */
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 1.2em;
+  padding: 1em 2.2em;
+  width: 100%;
+}
+
+/* Filtering & Sorting Features */
 
 .filters {
-  display: flex;
-  justify-content: left;
-  /* align-items: center; */
-  margin: 0.5em;
-  padding: 10px;
+  
   border-radius: 5px;
 }
 
-/* Style for the labels */
 label{
   font-weight: bold;
 }
 
-/* Style for the select elements */
 select {
   padding: 5px;
   margin:0em 0.5em;
@@ -81,65 +81,47 @@ select {
   outline: none;
 }
 
-/* Style for the select options */
 option {
   padding: 5px;
 }
 
-/* Style for the selected option */
 select option:checked {
   background-color: #007bff; /* Change the background color of the selected option */
   color: #fff; /* Change the text color of the selected option */
 }
 
-
 /* For the table generated */
-table {
-    width:80%;
-      border-collapse: collapse;
-      margin: 38px auto; /* Centers the table horizontally */
-  }
+.table {
+  width: 80vw;
+  text-align: center;
+     
+}
+  
+.upd{
+  padding: 0.5em 2em;
+  background-color: #ffff00;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  
+.upd:hover{
+  background-color: #ffea00;
+}
+  
+.del{
+  padding: 0.5em 2em;
+  background-color: #ff3131;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  table, th, td {
-    /* border: 1px solid black; */
-    padding: 8px;
-  }
-  
-  
-  .dataRow:hover{
-    background-color: #70829671;;
-  }
-  
-  .upd{
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ffff00;
-    color: #000;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .upd:hover{
-    background-color: #ffea00;
-  }
-  
-  
-  .del{
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ff3131;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .del:hover{
-    background-color: #ff0808;
-  }
+.del:hover{
+  background-color: #ff0808;
+}
   
 /* Delete confirmation popup */
 #popup-overlay {

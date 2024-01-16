@@ -24,11 +24,16 @@ async function getApi(){
 getApi();
 
 function show(records){
-    let tab=`<tr style="color:#d8b8fc;">
+    let tab=`
+    <thead class="thead-dark">
+    <tr>
     <th>Status</th>
     <th>Description</th>
     <th></th>
-    </tr>`;
+    <th></th>
+    </tr>
+    </thead>
+    <tbody>`;
 
     
     for(var i=0;i<records.payload.length;i++){
@@ -36,14 +41,14 @@ function show(records){
         // console.log(item);
 
         if(item.crdeb_status==="Incomplete"){ // Incomplete Tasks
-            tab+=`<tr class="dataRow" id=${item.crdeb_taskList}>
+            tab+=`<tr class="taskRow" id=${item.crdeb_taskList}>
               <th><input type="checkbox" name="active${i+1}" id="active${i+1}" class="stat"></th>
               <th id="description${item.crdeb_taskList}">${item.crdeb_name}</th>
               <th><button type="button" class="upd" id="upd${item.crdeb_taskList}"> Edit </button> </th>
               <th><button type="button" class="del" id="del${item.crdeb_taskList}"> Delete </button> </th>
               </tr>`;
         }else{ // Complete Tasks
-            tab+=`<tr class="dataRow" id=${item.crdeb_taskList}>
+            tab+=`<tr class="taskRow" id=${item.crdeb_taskList}>
             <th><input type="checkbox" name="active${i+1}" class="stat" id="active${i+1}" checked="true"></th>
             <th id="description${item.crdeb_taskList}" style="text-decoration:line-through; color:#888;">${item.crdeb_name}</th>
             <th><button type="button" class="upd" id="upd${item.crdeb_taskList}">Edit</button> </th>
@@ -52,6 +57,8 @@ function show(records){
         }
 
     }
+
+    tab+=`</tbody>`;
         
     taskList.innerHTML=tab;
 
