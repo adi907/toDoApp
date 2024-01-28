@@ -66,7 +66,7 @@ function show(records){
 
     updateBtn.forEach((item)=>{
         item.addEventListener('click',(event)=>{
-            let id=event.target.closest('.dataRow').id;
+            let id=event.target.closest('.taskRow').id;
             // console.log(id);
             setFlag(id);
 
@@ -76,7 +76,7 @@ function show(records){
     let deleteBtn=document.querySelectorAll('.del');
     deleteBtn.forEach((item)=>{
         item.addEventListener('click',(event)=>{
-            let id=event.target.closest('.dataRow').id;
+            let id=event.target.closest('.taskRow').id;
             showPopup(id);
             // console.log(id);
             
@@ -86,7 +86,7 @@ function show(records){
     let statusBtn=document.querySelectorAll('.stat');
     statusBtn.forEach((item)=>{
         item.addEventListener('click',(event)=>{
-            let id=event.target.closest('.dataRow').id;
+            let id=event.target.closest('.taskRow').id;
             setStatus(id);
         })
     })
